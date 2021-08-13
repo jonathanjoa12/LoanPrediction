@@ -30,6 +30,7 @@ Education: Did the applicant graduate college?
 
 Dependents: How many dependents does the applicant have?
 
+
 File: Exploratory Data Analysis:
 
 The data is explored feature by feature to determine if there are necessary changes needed to improve the training of the model. This includes determining what should be done with the null values, converting string categories to categorical values, and creating visualizations of the individual features including histograms to determine if data is skewed or not. In addition, multiple questions and hypotheses were generated during this section and answered through visualizations. For example, we explore the data to see whether there is a disparity when it comes to gender. Most applicants are male. After using cross-tabulation analysis. We determine that men and women are equally likely to get approved for a loan.
@@ -39,15 +40,29 @@ We notice that our prediction value of loan_status is a binary categorical value
 
 File: Data Preprocessing:
 
-During our exploratory data analysis, we notice the features including the loan amount, applicant income and monthly payments are skewed. Therefore, we have to take the log of the data to mitigate the problem. We also feature engineer the total income by adding the coapplicant income and the applicant income together.
+During our exploratory data analysis, we notice the features including the loan amount, applicant income and monthly payments are skewed. Therefore, we must to take the log of the data to mitigate the problem. We also feature engineer the total income by adding the coapplicant income and the applicant income together.
 
-We have to split our data into the training and testing set to assess if we have a representative test set or not. We must also scale our data for the distance based models including K-Nearest Neighbors and Support Vector Machines.
+We must split our data into the training and testing set to assess if we have a representative test set or not. We must also scale our data for the distance-based models including K-Nearest Neighbors and Support Vector Machines.
 
 File: Models:
 
-During this section, we explore the most common classfication models including Logistic Regression, Decision Trees, Random Forests, K-Nearest Neighbors, Support Vector Machines, Gradient Boosting, and Naive Bayes. We train the models and also conduct gridsearching or hyperameter tuning to find the best parameters of each model.
+During this section, we explore the most common classification models including Logistic Regression, Decision Trees, Random Forests, K-Nearest Neighbors, Support Vector Machines, Gradient Boosting, and Naive Bayes. We train the models and conduct gridsearching or hyperparameter tuning to find the best parameters of each model.
 
-The model that we select is highly dependent on the initial problem that we are trying to solve. For example, if we want to minimize borrowers defaulting on their loans, we would try to optimize the precision rate. Therefore, we would choose a logistic regression model or gradient boosting model that score the highest in precision.
+All the models have a higher training score than testing score which makes them at risk of overfitting with Random Forest Model being the highest at risk. This is a little surprising considering Decision Trees tend to overfit more often than Random Forest Models.
 
-If we want to improve our customer acquisition rate, we would want to optimize for recall. Many of these consumers may have never had a history of taking out loans from a bank in which there is a higher chance of more consumers defaulting on their loans if recall is the metric chosen to optimize. If recall were the metric to be optimized we would choose either a Support Vector Machine model or Gradient Boosting model. Each model has their drawbacks including a lower AUC ROC on the Support Vector Machine and slightly higher tendency of overfitting on the Gradient Boosting Model. 
+The model that we select is highly dependent on the initial problem that we are trying to solve. For example, if we want to minimize borrowers defaulting on their loans, we will try to optimize the precision rate. Therefore, we would choose a logistic regression model or gradient boosting model that score the highest in precision. 
+
+If we want to improve our customer acquisition rate, we will want to optimize for recall. Many of these consumers may have never had a history of taking out loans from a bank in which there is a higher chance of more consumers defaulting on their loans if recall is the metric chosen to optimize. If recall were the metric to be optimized, we would choose either a Support Vector Machine model or Gradient Boosting model. Each model has their drawbacks including a lower AUC ROC on the Support Vector Machine and slightly higher tendency of overfitting on the Gradient Boosting Model. 
+
+When determining the features that contribute the most to the target variable prediction, the highest contributing factors taken from the logistic regression model are credit history, maritial status, dependents, and education.
+
+In the end of the project, the model is used to predict the test data along with the probabilities of an applicant getting rejected or accepted for their loan.
+
+Drawbacks:
+
+- In terms of the data, a specific credit score number would help significantly to predict the model. A credit history can mean a person has a history of credit. However, its not specified whether it is good or bad credit.
+
+- The dataset is too small. The number of applicants in the dataset is 614 which can significantly affect the results.
+
+- There were a few features that were highly correlated with each other which may have affected the Random Forest Model. They included the Total Income vs Loan Amount and Applicant Income. Loan status and credit history tend to have a moderate correlation between each other.
 
