@@ -1,5 +1,10 @@
 # Loan Prediction
 
+File Order: 
+1) EDA
+2) Data Preprocessing
+3) Models
+
 Background and Introduction to the Project:
 
 Loans are essential especially today because many people who want to buy a home or a car typically request a loan from the bank. There are many factors that come into play when banks assess a person's ability to pay back a loan or not. This project assesses a dataset containing applicant information. This data is trained under multiple machine learning models and the goal of this project is to assess which model is the best fit for this data. The results will be very useful for banks in determining whether an applicant will be accepted for a loan or not. Most of these sections are briefly discussed in the read me but further detail can be assessed within the .pynb files.
